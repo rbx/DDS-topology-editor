@@ -27,7 +27,7 @@ var TopologyEditor = React.createClass({
     },
 
     toggleFluid: function() {
-        // this.setState({ fluid: !this.state.fluid });
+        this.setState({ fluid: !this.state.fluid });
     },
 
     resetState: function() {
@@ -386,6 +386,7 @@ var TopologyEditor = React.createClass({
         var Popover = ReactBootstrap.Popover;
         var Button = ReactBootstrap.Button;
         var Input = ReactBootstrap.Input;
+        var ButtonInput = ReactBootstrap.ButtonInput;
         var PropertyCheckboxes = [];
         var TaskCheckboxes = [];
         var CollectionCheckboxes = [];
@@ -431,8 +432,7 @@ var TopologyEditor = React.createClass({
                                     properties={this.state.properties}
                                     tasks={this.state.tasks}
                                     collections={this.state.collections}
-                                    main={this.state.main}
-                                />
+                                    main={this.state.main} />
 
                                 <li className="list-group-item properties-header">
                                     properties
@@ -442,7 +442,7 @@ var TopologyEditor = React.createClass({
                                                 <Input type="text" addonBefore="id" onChange={this.handleInputChange} className={this.state.invalidInput ? "invalid-input" : ""} />
                                                 <div className="row">
                                                     <div className="col-xs-12">
-                                                        <Input className="add-cg-popover-btn" type="submit" bsSize="small" bsStyle="primary" value="add" />
+                                                        <ButtonInput className="add-cg-popover-btn" type="submit" bsSize="small" bsStyle="primary" value="add" />
                                                         <Button className="add-cg-popover-btn" bsSize="small" bsStyle="default" onClick={this.hideAddPropertyButton}>cancel</Button>
                                                     </div>
                                                 </div>
@@ -456,8 +456,7 @@ var TopologyEditor = React.createClass({
                                     <PropertyList
                                         properties={this.state.properties}
                                         onRemoveProperty={this.handleRemoveProperty}
-                                        onEditProperty={this.handleEditProperty}
-                                    />
+                                        onEditProperty={this.handleEditProperty} />
                                 </li>
 
                                 <li className="list-group-item tasks-header">
@@ -474,7 +473,7 @@ var TopologyEditor = React.createClass({
                                                 {PropertyCheckboxes}
                                                 <div className="row">
                                                     <div className="col-xs-12">
-                                                        <Input className="add-cg-popover-btn" type="submit" bsSize="small" bsStyle="primary" value="add" />
+                                                        <ButtonInput className="add-cg-popover-btn" type="submit" bsSize="small" bsStyle="primary" value="add" />
                                                         <Button className="add-cg-popover-btn" bsSize="small" bsStyle="default" onClick={this.hideAddTaskButton}>cancel</Button>
                                                     </div>
                                                 </div>
@@ -489,8 +488,7 @@ var TopologyEditor = React.createClass({
                                         properties={this.state.properties}
                                         tasks={this.state.tasks}
                                         onRemoveTask={this.handleRemoveTask}
-                                        onEditTask={this.handleEditTask}
-                                    />
+                                        onEditTask={this.handleEditTask} />
                                 </li>
 
                                 <li className="list-group-item collections-header">
@@ -503,7 +501,7 @@ var TopologyEditor = React.createClass({
                                                 {TaskCheckboxes}
                                                 <div className="row">
                                                     <div className="col-xs-12">
-                                                        <Input className="add-cg-popover-btn" type="submit" bsSize="small" bsStyle="primary" value="add" />
+                                                        <ButtonInput className="add-cg-popover-btn" type="submit" bsSize="small" bsStyle="primary" value="add" />
                                                         <Button className="add-cg-popover-btn" bsSize="small" bsStyle="default" onClick={this.hideAddCollectionButton}>cancel</Button>
                                                     </div>
                                                 </div>
@@ -518,8 +516,7 @@ var TopologyEditor = React.createClass({
                                         collections={this.state.collections}
                                         tasks={this.state.tasks}
                                         onRemoveCollection={this.handleRemoveCollection}
-                                        onEditCollection={this.handleEditCollection}
-                                    />
+                                        onEditCollection={this.handleEditCollection} />
                                 </li>
 
                                 <li className="list-group-item groups-header">
@@ -539,7 +536,7 @@ var TopologyEditor = React.createClass({
                                                 {CollectionCheckboxes}
                                                 <div className="row">
                                                     <div className="col-xs-12">
-                                                        <Input className="add-cg-popover-btn" type="submit" bsSize="small" bsStyle="primary" value="add" />
+                                                        <ButtonInput className="add-cg-popover-btn" type="submit" bsSize="small" bsStyle="primary" value="add" />
                                                         <Button className="add-cg-popover-btn" bsSize="small" bsStyle="default" onClick={this.hideAddGroupButton}>cancel</Button>
                                                     </div>
                                                 </div>
@@ -555,8 +552,7 @@ var TopologyEditor = React.createClass({
                                         tasks={this.state.tasks}
                                         collections={this.state.collections}
                                         onRemoveGroup={this.handleRemoveGroup}
-                                        onEditGroup={this.handleEditGroup}
-                                    />
+                                        onEditGroup={this.handleEditGroup} />
                                 </li>
 
                                 <li className="list-group-item">
