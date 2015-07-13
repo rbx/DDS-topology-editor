@@ -111,6 +111,7 @@ var Group = React.createClass({
         var Popover = ReactBootstrap.Popover;
         var Button = ReactBootstrap.Button;
         var Input = ReactBootstrap.Input;
+        var ButtonInput = ReactBootstrap.ButtonInput;
         var TaskCheckboxes = [];
         var CollectionCheckboxes = [];
         var self = this;
@@ -171,7 +172,7 @@ var Group = React.createClass({
                                 {CollectionCheckboxes}
                                 <div className="row">
                                     <div className="col-xs-12">
-                                        <Input className="add-cg-popover-btn" type="submit" bsSize="small" bsStyle="primary" value="add" />
+                                        <ButtonInput className="add-cg-popover-btn" type="submit" bsSize="small" bsStyle="primary" value="add" />
                                         <Button className="add-cg-popover-btn" bsSize="small" bsStyle="default" onClick={this.hideEditGroupButton}>cancel</Button>
                                     </div>
                                 </div>

@@ -115,6 +115,7 @@ var Task = React.createClass({
         var Popover = ReactBootstrap.Popover;
         var Button = ReactBootstrap.Button;
         var Input = ReactBootstrap.Input;
+        var ButtonInput = ReactBootstrap.ButtonInput;
         var PropertyCheckboxes = [];
         var exeReachableCheckbox = false;
         var envReachableCheckbox = false;
@@ -180,7 +181,7 @@ var Task = React.createClass({
                                 {PropertyCheckboxes}
                                 <div className="row">
                                     <div className="col-xs-12">
-                                        <Input className="add-cg-popover-btn" type="submit" bsSize="small" bsStyle="primary" value="add" />
+                                        <ButtonInput className="add-cg-popover-btn" type="submit" bsSize="small" bsStyle="primary" value="add" />
                                         <Button className="add-cg-popover-btn" bsSize="small" bsStyle="default" onClick={this.hideEditTaskButton}>cancel</Button>
                                     </div>
                                 </div>
