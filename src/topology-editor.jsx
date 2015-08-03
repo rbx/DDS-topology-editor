@@ -10,6 +10,7 @@ var TopologyEditor = React.createClass({
     getInitialState: function() {
         return {
             topologyId: 'new topology',
+            variables: [],
             properties: [],
             requirements: [],
             tasks: [],
@@ -32,6 +33,7 @@ var TopologyEditor = React.createClass({
     resetState: function() {
         this.replaceState({
             topologyId: 'new topology',
+            variables: [],
             properties: [],
             requirements: [],
             tasks: [],
@@ -46,9 +48,10 @@ var TopologyEditor = React.createClass({
         });
     },
 
-    handleTopologyChange: function(topologyId, properties, requirements, tasks, collections, main) {
+    handleTopologyChange: function(topologyId, variables, properties, requirements, tasks, collections, main) {
         this.setState({
             topologyId: topologyId,
+            variables: variables,
             properties: properties,
             requirements: requirements,
             tasks: tasks,
@@ -432,6 +435,7 @@ var TopologyEditor = React.createClass({
                                 <FileActions
                                     onFileLoad={this.handleTopologyChange}
                                     topologyId={this.state.topologyId}
+                                    variables={this.state.variables}
                                     properties={this.state.properties}
                                     requirements={this.state.requirements}
                                     tasks={this.state.tasks}

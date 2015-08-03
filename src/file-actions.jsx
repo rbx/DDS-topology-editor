@@ -11,6 +11,7 @@ var FileActions = React.createClass({
         var parser = new DOMParser(),
             reader = new FileReader(),
             topologyId = '',
+            variables = [],
             properties = [],
             requirements = [],
             tasks = [],
@@ -24,6 +25,14 @@ var FileActions = React.createClass({
 
             // topology name
             topologyId = $xml.find('topology').attr('id');
+
+            // variables
+            $xml.find('topology>var').each(function() {
+                var variable = {};
+                variable.id = $(this).attr('id');
+                variable.value = $(this).attr('value');
+                variables.push(variable);
+            });
 
             // properties
             $xml.find('topology>property').each(function() {
@@ -129,7 +138,7 @@ var FileActions = React.createClass({
                 main.groups.push(group);
             });
 
-            self.props.onFileLoad(topologyId, properties, requirements, tasks, collections, main);
+            self.props.onFileLoad(topologyId, variables, properties, requirements, tasks, collections, main);
 
             target.value = "";
         }
@@ -144,6 +153,21 @@ var FileActions = React.createClass({
 
         var brbr = xmlDoc.createTextNode('\r\n\r\n');
         root.appendChild(brbr);
+
+        // variables
+        this.props.variables.forEach(function(variable) {
+            var newVariable = xmlDoc.createElement('var');
+            newVariable.setAttribute('id', variable.id);
+            newVariable.setAttribute('value', variable.value);
+            var spaces = xmlDoc.createTextNode('    ');
+            root.appendChild(spaces);
+            root.appendChild(newVariable);
+            var br = xmlDoc.createTextNode('\r\n');
+            root.appendChild(br);
+        });
+
+        var br = xmlDoc.createTextNode('\r\n');
+        root.appendChild(br);
 
         // properties
         this.props.properties.forEach(function(property) {
@@ -274,9 +298,10 @@ var FileActions = React.createClass({
                 var collectionRequirement = xmlDoc.createElement('requirement');
                 collectionRequirement.textContent = collection.requirement;
                 newCollection.appendChild(collectionRequirement);
-                var brspaces = xmlDoc.createTextNode('\r\n        ');
-                newCollection.appendChild(brspaces);
             }
+
+            var brspaces = xmlDoc.createTextNode('\r\n        ');
+            newCollection.appendChild(brspaces);
 
             var tasks = xmlDoc.createElement('tasks');
 
