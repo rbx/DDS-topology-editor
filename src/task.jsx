@@ -180,7 +180,7 @@ var Task = React.createClass({
                                 {PropertyCheckboxes}
                                 <div className="row">
                                     <div className="col-xs-12">
-                                        <ButtonInput className="add-cg-popover-btn" type="submit" bsSize="small" bsStyle="primary" value="add" />
+                                        <ButtonInput className="add-cg-popover-btn" type="submit" bsSize="small" bsStyle="primary" value="edit" />
                                         <Button className="add-cg-popover-btn" bsSize="small" bsStyle="default" onClick={this.hideEditTaskButton}>cancel</Button>
                                     </div>
                                 </div>
@@ -194,7 +194,9 @@ var Task = React.createClass({
                     <li><span><strong>exe:</strong></span> <input className="code" readOnly value={this.props.task.exe.valueText}></input>{exeReachable}</li>
                     {envValue}
                     <div>
-                        {this.props.task.properties}
+                        {this.props.task.properties.map(function(property) {
+                            return property.id;
+                        })}
                     </div>
                 </ul>
             </div>

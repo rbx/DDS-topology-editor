@@ -171,7 +171,7 @@ var Group = React.createClass({
                                 {CollectionCheckboxes}
                                 <div className="row">
                                     <div className="col-xs-12">
-                                        <ButtonInput className="add-cg-popover-btn" type="submit" bsSize="small" bsStyle="primary" value="add" />
+                                        <ButtonInput className="add-cg-popover-btn" type="submit" bsSize="small" bsStyle="primary" value="edit" />
                                         <Button className="add-cg-popover-btn" bsSize="small" bsStyle="default" onClick={this.hideEditGroupButton}>cancel</Button>
                                     </div>
                                 </div>

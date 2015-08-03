@@ -99,7 +99,7 @@ var Collection = React.createClass({
         var Popover = ReactBootstrap.Popover;
         var Button = ReactBootstrap.Button;
         var Input = ReactBootstrap.Input;
-        var ButtonInput = ReactBootstrap.Input;
+        var ButtonInput = ReactBootstrap.ButtonInput;
         var TaskCheckboxes = [];
         var self = this;
 
@@ -137,7 +137,7 @@ var Collection = React.createClass({
                                 {TaskCheckboxes}
                                 <div className="row">
                                     <div className="col-xs-12">
-                                        <ButtonInput className="add-cg-popover-btn" type="submit" bsSize="small" bsStyle="primary" value="add" />
+                                        <ButtonInput className="add-cg-popover-btn" type="submit" bsSize="small" bsStyle="primary" value="edit" />
                                         <Button className="add-cg-popover-btn" bsSize="small" bsStyle="default" onClick={this.hideEditCollectionButton}>cancel</Button>
                                     </div>
                                 </div>
