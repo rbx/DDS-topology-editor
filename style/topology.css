@@ -185,6 +185,7 @@ pre.prettyprint {
 /* cg - collection+group */
 .popover-content {
     padding: 9px 9px;
+    background-color: #F7F7F7;
 }
 .ct-box {
     color: #FFF;
