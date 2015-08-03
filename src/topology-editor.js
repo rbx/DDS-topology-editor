@@ -110,6 +110,8 @@ var TopologyEditor = React.createClass({
             return;
         }
         var nextProperties = this.state.properties;
+        console.log(key);
+        console.log(nextProperties);
         var oldId = nextProperties[key].id;
         nextProperties[key] = newproperty;
         var nextTasks = this.state.tasks;

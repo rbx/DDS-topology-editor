@@ -21,6 +21,7 @@ var TaskList = React.createClass({
                                 onEditTask={self.props.onEditTask}
                                 onRemoveTask={self.props.onRemoveTask}
                                 key={index}
+                                elementKey={index}
                             />;
                 })}
             </div>
@@ -100,14 +101,14 @@ var Task = React.createClass({
         }
 
         var nextTasks = this.props.tasks;
-        nextTasks[this.props.key] = updatedTask;
+        nextTasks[this.props.elementKey] = updatedTask;
 
         this.refs.editTaskBtn.toggle();
         this.props.onEditTask(nextTasks);
     },
 
     handleRemoveTask: function() {
-        this.props.onRemoveTask(this.props.key);
+        this.props.onRemoveTask(this.props.elementKey);
     },
 
     render: function() {

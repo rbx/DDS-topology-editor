@@ -21,6 +21,7 @@ var CollectionList = React.createClass({
                                 onEditCollection={self.props.onEditCollection}
                                 onRemoveCollection={self.props.onRemoveCollection}
                                 key={index}
+                                elementKey={index}
                             />;
                 })}
             </div>
@@ -85,14 +86,14 @@ var Collection = React.createClass({
         }
 
         var nextCollections = this.props.collections;
-        nextCollections[this.props.key] = updatedCollection;
+        nextCollections[this.props.elementKey] = updatedCollection;
 
         this.refs.editCollectionBtn.toggle();
         this.props.onEditCollection(nextCollections);
     },
 
     handleRemoveCollection: function() {
-        this.props.onRemoveCollection(this.props.key);
+        this.props.onRemoveCollection(this.props.elementKey);
     },
 
     render: function() {

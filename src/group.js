@@ -22,6 +22,7 @@ var GroupList = React.createClass({
                                 onEditGroup={self.props.onEditGroup}
                                 onRemoveGroup={self.props.onRemoveGroup}
                                 key={index}
+                                elementKey={index}
                             />;
                 })}
             </div>
@@ -96,14 +97,14 @@ var Group = React.createClass({
         };
 
         var nextGroups = this.props.groups;
-        nextGroups[this.props.key] = newGroup;
+        nextGroups[this.props.elementKey] = newGroup;
 
         this.refs.editGroupBtn.toggle();
         this.props.onEditGroup(nextGroups);
     },
 
     handleRemoveGroup: function() {
-        this.props.onRemoveGroup(this.props.key);
+        this.props.onRemoveGroup(this.props.elementKey);
     },
 
     render: function() {
