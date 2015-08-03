@@ -1,5 +1,3 @@
-/** @jsx React.DOM */
-
 /********************************************************************************
  *    Copyright (C) 2014 GSI Helmholtzzentrum fuer Schwerionenforschung GmbH    *
  *                                                                              *
@@ -69,7 +67,7 @@ var FileActions = React.createClass({
                 var collection = {};
                 collection.id = $(this).attr('id');
                 collection.tasks = [];
-                $(this).find('task').each(function() {
+                $(this).find('tasks>id').each(function() {
                     collection.tasks.push($(this).text());
                 });
                 collections.push(collection);
@@ -168,10 +166,12 @@ var FileActions = React.createClass({
         this.props.collections.forEach(function(collection) {
             var newCollection = xmlDoc.createElement('declcollection');
             newCollection.setAttribute('id', collection.id);
+            var tasks = xmlDoc.createElement('tasks');
+            newCollection.appendChild(tasks);
             collection.tasks.forEach(function(task) {
-                var newTask = xmlDoc.createElement('task');
+                var newTask = xmlDoc.createElement('id');
                 newTask.textContent = task;
-                newCollection.appendChild(newTask);
+                tasks.appendChild(newTask);
             });
 
             root.appendChild(newCollection);

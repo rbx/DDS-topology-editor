@@ -1,5 +1,3 @@
-/** @jsx React.DOM */
-
 /********************************************************************************
  *    Copyright (C) 2014 GSI Helmholtzzentrum fuer Schwerionenforschung GmbH    *
  *                                                                              *
@@ -100,6 +98,7 @@ var Collection = React.createClass({
         var OverlayTrigger = ReactBootstrap.OverlayTrigger;
         var Popover = ReactBootstrap.Popover;
         var Button = ReactBootstrap.Button;
+        var Input = ReactBootstrap.Input;
         var ButtonInput = ReactBootstrap.Input;
         var TaskCheckboxes = [];
         var self = this;
