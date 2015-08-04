@@ -312,21 +312,38 @@ li.main-separator {
 }
 
 /* List Elements */
+.list-group-item:first-child {
+    border: 0;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+}
+li.file-actions {
+    margin-bottom: 4px;
+}
 li.properties {
     background-color: #f1f8e9;
     border-top: 0;
+    margin-bottom: 4px;
 }
 li.tasks {
     background-color: #e1f5fe;
     border-top: 0;
+    margin-bottom: 4px;
 }
 li.collections {
     background-color: #eceff1;
     border-top: 0;
+    margin-bottom: 4px;
 }
 li.groups {
     background-color: #e0f2f1;
     border-top: 0;
+    margin-bottom: 4px;
+}
+.list-group-item:last-child {
+    border: 0;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
 }
 
 /* individual Elements */

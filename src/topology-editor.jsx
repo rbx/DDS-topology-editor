@@ -451,31 +451,6 @@ var TopologyEditor = React.createClass({
                                     collections={this.state.collections}
                                     main={this.state.main} />
 
-                                <li className="list-group-item properties-header">
-                                    properties
-                                    <OverlayTrigger trigger="click" placement="right" ref="addPropertyBtn" onClick={this.handleInputChange} overlay={
-                                        <Popover className="add-cg-popover" title="add new property">
-                                            <form onSubmit={this.handleAddProperty}>
-                                                <Input type="text" addonBefore="id" onChange={this.handleInputChange} className={this.state.invalidInput ? "invalid-input" : ""} />
-                                                <div className="row">
-                                                    <div className="col-xs-12">
-                                                        <ButtonInput className="add-cg-popover-btn" type="submit" bsSize="small" bsStyle="primary" value="add" />
-                                                        <Button className="add-cg-popover-btn" bsSize="small" bsStyle="default" onClick={this.hideAddPropertyButton}>cancel</Button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </Popover>
-                                    }>
-                                        <span className="glyphicon glyphicon-plus add-property-btn" title="add new property"></span>
-                                    </OverlayTrigger>
-                                </li>
-                                <li className="list-group-item properties">
-                                    <PropertyList
-                                        properties={this.state.properties}
-                                        onRemoveProperty={this.handleRemoveProperty}
-                                        onEditProperty={this.handleEditProperty} />
-                                </li>
-
                                 <li className="list-group-item tasks-header">
                                     tasks
                                     <OverlayTrigger trigger="click" placement="right" ref="addTaskBtn" onClick={this.handleInputChange} overlay={
@@ -506,6 +481,31 @@ var TopologyEditor = React.createClass({
                                         tasks={this.state.tasks}
                                         onRemoveTask={this.handleRemoveTask}
                                         onEditTask={this.handleEditTask} />
+                                </li>
+
+                                <li className="list-group-item properties-header">
+                                    properties
+                                    <OverlayTrigger trigger="click" placement="right" ref="addPropertyBtn" onClick={this.handleInputChange} overlay={
+                                        <Popover className="add-cg-popover" title="add new property">
+                                            <form onSubmit={this.handleAddProperty}>
+                                                <Input type="text" addonBefore="id" onChange={this.handleInputChange} className={this.state.invalidInput ? "invalid-input" : ""} />
+                                                <div className="row">
+                                                    <div className="col-xs-12">
+                                                        <ButtonInput className="add-cg-popover-btn" type="submit" bsSize="small" bsStyle="primary" value="add" />
+                                                        <Button className="add-cg-popover-btn" bsSize="small" bsStyle="default" onClick={this.hideAddPropertyButton}>cancel</Button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </Popover>
+                                    }>
+                                        <span className="glyphicon glyphicon-plus add-property-btn" title="add new property"></span>
+                                    </OverlayTrigger>
+                                </li>
+                                <li className="list-group-item properties">
+                                    <PropertyList
+                                        properties={this.state.properties}
+                                        onRemoveProperty={this.handleRemoveProperty}
+                                        onEditProperty={this.handleEditProperty} />
                                 </li>
 
                                 <li className="list-group-item collections-header">
