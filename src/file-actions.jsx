@@ -151,8 +151,13 @@ var FileActions = React.createClass({
         var root = xmlDoc.createElement('topology');
         root.setAttribute('id', this.props.topologyId);
 
-        var brbr = xmlDoc.createTextNode('\r\n\r\n');
+        var brbr = xmlDoc.createTextNode('\r\n');
         root.appendChild(brbr);
+
+        if (this.props.variables.length > 0) {
+            var brbr = xmlDoc.createTextNode('\r\n');
+            root.appendChild(brbr);
+        }
 
         // variables
         this.props.variables.forEach(function(variable) {

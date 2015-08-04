@@ -42,6 +42,13 @@ input[type=text], input[type=password], input[type=email], textarea, [type=text]
 .form-control {
     height: 30px;
 }
+select, select.form-control {
+  font-size: 12px;
+  height: 22px;
+  padding: 0;
+  color: white;
+  background-color: #8bc34a;
+}
 
 .radio, .checkbox {
     margin-top: 5px;
@@ -194,6 +201,7 @@ pre.prettyprint {
     border-radius: 2px;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     font-size: 12px;
+    width: 100%;
 }
 .ct-box-property {
     background-color: #8bc34a;
@@ -214,6 +222,9 @@ pre.prettyprint {
     margin: 2px;
     display: inline-block;
     vertical-align: middle;
+}
+.ct-box .form-group {
+    float: right;
 }
 .add-cg-popover input[type=number] {
     padding: 0 0 0 6px;
@@ -461,7 +472,7 @@ li.groups {
 .task:hover .glyphicon-edit, .task:hover .glyphicon-remove {
     opacity: 1;
 }
-.task div span {
+.task div > span {
     border-radius: 2px;
     background-color: #8bc34a;
     color: white;
@@ -469,6 +480,11 @@ li.groups {
     margin: 2px 2px;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     display: inline-block;
+    width: 100%;
+}
+.prop-access {
+    font-weight: 800;
+    font-size: 10px;
 }
 .task div {
     margin: 2px 0;

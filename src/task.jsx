@@ -74,8 +74,12 @@ var Task = React.createClass({
         }
         var selectedProperties = [];
         this.props.properties.forEach(function(property, index) {
-            for(var i = 0; i < e.target[0].form[index+5].value; i++) {
-                selectedProperties.push({ id: property.id });
+            if (e.target[0].form[index+5].value === "read") {
+                selectedProperties.push({ id: property.id, access: "read" });
+            } else if (e.target[0].form[index+5].value === "write") {
+                selectedProperties.push({ id: property.id, access: "write" });
+            } else if (e.target[0].form[index+5].value === "readwrite") {
+                selectedProperties.push({ id: property.id, access: "readwrite" });
             }
         });
         var updatedTask = {
@@ -122,16 +126,21 @@ var Task = React.createClass({
         var self = this;
 
         this.props.properties.forEach(function(property, i) {
-            var count = 0;
+            var access = "";
             self.props.task.properties.forEach(function(currentProperty, i) {
                 if (property.id === currentProperty.id) {
-                    count++;
+                    access = currentProperty.access;
                 }
             });
             PropertyCheckboxes.push(
                 <div className="ct-box ct-box-property" key={"t-box" + i}>
                     <div className="element-name" title={property.id}>{property.id}</div>
-                    <Input className="add-cg-tc-counter" type="number" min="0" defaultValue={count} />
+                    <Input type="select" defaultValue={access} className="accessSelect">
+                        <option value="">-</option>
+                        <option value="read">read</option>
+                        <option value="write">write</option>
+                        <option value="readwrite">readwrite</option>
+                    </Input>
                 </div>
             );
         });
@@ -195,7 +204,13 @@ var Task = React.createClass({
                     {envValue}
                     <div>
                         {this.props.task.properties.map(function(property) {
-                            return property.id;
+                            return (<span>
+                                        &nbsp;
+                                        <span className="prop-access" title={ (property.access === "write") ? "write" : "" }>{ (property.access === "write") ? "W " : "" }</span>
+                                        <span className="prop-access" title={ (property.access === "read") ? "read" : "" }>{ (property.access === "read") ? "R " : "" }</span>
+                                        <span className="prop-access" title={ (property.access === "readwrite") ? "read & write" : "" }>{ (property.access === "readwrite") ? "RW " : "" }</span>
+                                        {property.id}
+                                    </span>);
                         })}
                     </div>
                 </ul>

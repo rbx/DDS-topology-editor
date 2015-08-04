@@ -147,8 +147,12 @@ var TopologyEditor = React.createClass({
         }
         var selectedProperties = [];
         this.state.properties.forEach(function(property, index) {
-            for(var i = 0; i < e.target[0].form[index+5].value; i++) {
-                selectedProperties.push({ id: property.id });
+            if (e.target[0].form[index+5].value === "read") {
+                selectedProperties.push({ id: property.id, access: "read" });
+            } else if (e.target[0].form[index+5].value === "write") {
+                selectedProperties.push({ id: property.id, access: "write" });
+            } else if (e.target[0].form[index+5].value === "readwrite") {
+                selectedProperties.push({ id: property.id, access: "readwrite" });
             }
         });
         var newTask = {
@@ -401,7 +405,12 @@ var TopologyEditor = React.createClass({
             PropertyCheckboxes.push(
                 <div className="ct-box ct-box-property" key={"t-box" + i}>
                     <div className="element-name" title={property.id}>{property.id}</div>
-                    <Input className="add-cg-tc-counter" type="number" min="0" defaultValue="0" />
+                    <Input type="select" defaultValue="" className="accessSelect">
+                        <option value="">-</option>
+                        <option value="read">read</option>
+                        <option value="write">write</option>
+                        <option value="readwrite">readwrite</option>
+                    </Input>
                 </div>
             );
         });
