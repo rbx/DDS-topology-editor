@@ -2,6 +2,7 @@
 body {
     font-family: "Roboto", sans-serif;
     font-weight: 300;
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
     cursor: default;
     min-width: 760px;
 }
@@ -28,6 +29,7 @@ input[type="radio"], input[type="checkbox"] {
 }
 .popover {
     max-width: 300px;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
 }
 .popover-title {
     text-align: center;
@@ -44,10 +46,9 @@ input[type=text], input[type=password], input[type=email], textarea, [type=text]
 }
 select, select.form-control {
   font-size: 12px;
-  height: 22px;
+  height: 24px;
   padding: 0;
-  color: white;
-  background-color: #8bc34a;
+  background-color: #f1f8e9;
 }
 
 .radio, .checkbox {
@@ -119,7 +120,7 @@ span.reachable {
 }
 input.mono {
     font-family: "Inconsolata", monospace;
-    width: 195px !important;
+    width: 240px !important;
 }
 
 /* File Open Dialog */
@@ -242,7 +243,7 @@ pre.prettyprint {
     overflow: hidden;
     text-overflow: ellipsis;
     display: inline-block;
-    height: 28px;
+    height: 23px;
     line-height: normal;
     vertical-align: middle;
     padding: 5px 4px 0 4px;

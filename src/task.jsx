@@ -200,7 +200,7 @@ var Task = React.createClass({
                     </OverlayTrigger>
                 </h5>
                 <ul className={this.state.bodyVisible ? "visible-container" : "invisible-container"}>
-                    <li><span><strong>exe:</strong></span> <input className="code" readOnly value={this.props.task.exe.valueText}></input>{exeReachable}</li>
+                    <li><span><strong>exe:</strong></span> <input className="code" readOnly value={this.props.task.exe.valueText} title={this.props.task.exe.valueText}></input>{exeReachable}</li>
                     {envValue}
                     <div>
                         {this.props.task.properties.map(function(property) {
