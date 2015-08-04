@@ -7,35 +7,6 @@
  ********************************************************************************/
 
 var MainEditor = React.createClass({
-    getInitialState: function() {
-        return {
-            IdBeeingEdited: false
-        }
-    },
-
-    toggleEditing: function() {
-        this.setState({ beeingEdited: !this.state.beeingEdited })
-    },
-
-    handleEditId: function(e) {
-        e.preventDefault();
-        if(e.target[0].form[0].value === "") {
-            return;
-        }
-        var updatedProperty = {
-            id: e.target[0].form[0].value
-        };
-        var nextMain = {
-            id: e.target[0].form[0].value,
-            tasks: this.props.main.tasks,
-            collections: this.props.main.collections,
-            groups: this.props.main.groups
-        };
-
-        this.toggleEditing();
-        this.props.onEditMain(nextMain);
-    },
-
     hideEditTasksInMainBtn: function(e) {
         e.preventDefault();
         this.refs.editTasksInMainBtn.toggle();
@@ -129,15 +100,7 @@ var MainEditor = React.createClass({
         return (
             <div className="panel panel-default">
                 <div className="panel-heading">
-                    {this.state.beeingEdited ?
-                        <form onSubmit={this.handleEditId}>
-                            <strong>id: </strong>
-                            <input className="form-control" type="text" autoFocus defaultValue={this.props.main.id}></input>
-                            <button className="btn btn-xs btn-primary" type="submit">ok</button>
-                        </form>
-                        :
-                        <p className="panel-title" onClick={this.toggleEditing}>{this.props.main.id}</p>
-                    }
+                    <p className="panel-title">{this.props.main.id}</p>
                 </div>
                 <div id="main-editor-body" className="panel-body">
                     <div className="row">
