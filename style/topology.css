@@ -90,8 +90,8 @@ form.name-change input[type=submit] {
     color: #FFF;
     font-size: 13px;
     margin: 0 2px;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
     padding: 0 3px;
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
 }
@@ -199,8 +199,8 @@ pre.prettyprint {
     color: #FFF;
     display: inline-block;
     margin: 1px;
-    border-radius: 2px;
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    border-radius: 0px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     font-size: 12px;
     width: 100%;
 }
@@ -292,6 +292,7 @@ li.main-separator {
     text-transform: uppercase;
     border-bottom: 0;
     font-size: 12px;
+    border: 0;
 }
 .properties-header {
     color: white;
@@ -377,8 +378,8 @@ li.groups {
     margin: 0;
     font-weight: 300;
     font-size: 14px;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -409,12 +410,12 @@ li.groups {
 
 /* Properties */
 .property {
-    border-radius: 2px;
+    border-radius: 0px;
     background-color: white;
     color: black;
     padding: 0;
     margin: 3px 2px;
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     white-space: nowrap;
     overflow: hidden;
     /*display: inline-block;*/
@@ -448,12 +449,12 @@ li.groups {
 
 /* Tasks */
 .task {
-    border-radius: 2px;
+    border-radius: 0px;
     background-color: white;
     color: black;
     padding: 0;
     margin: 3px 2px;
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     /*display: inline-block;*/
 }
 .task .glyphicon-chevron-up {
@@ -474,12 +475,12 @@ li.groups {
     opacity: 1;
 }
 .task div > span {
-    border-radius: 2px;
+    border-radius: 0px;
     background-color: #8bc34a;
     color: white;
     padding: 1px 3px;
     margin: 2px 2px;
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     display: inline-block;
     width: 100%;
 }
@@ -505,12 +506,12 @@ li.groups {
 
 /* Collections */
 .collection {
-    border-radius: 2px;
+    border-radius: 0px;
     background-color: white;
     color: black;
     padding: 0;
     margin: 4px 2px;
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     /*display: inline-block;*/
 }
 .collection .glyphicon-chevron-up {
@@ -531,12 +532,12 @@ li.groups {
     opacity: 1;
 }
 .collection div span {
-    border-radius: 2px;
+    border-radius: 0px;
     background-color: #03a9f4;
     color: white;
     padding: 1px 3px;
     margin: 2px 2px;
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     display: inline-block;
 }
 .collection div {
@@ -545,19 +546,19 @@ li.groups {
 
 /* Groups */
 .group {
-    border-radius: 2px;
+    border-radius: 0px;
     background-color: white;
     color: black;
     padding: 0;
     margin: 2px 2px;
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     /*display: inline-block;*/
 }
 .group div span {
-    border-radius: 2px;
+    border-radius: 0px;
     padding: 1px 3px;
     margin: 2px 2px;
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     display: inline-block;
 }
 .group div.group-tasks span {
@@ -602,7 +603,7 @@ li.groups {
 }
 
 .main-element {
-    border-radius: 2px;
+    border-radius: 0px;
     background-color: white;
     color: black;
     padding: 0;
@@ -610,10 +611,10 @@ li.groups {
     padding-bottom: 15px;
 }
 .main-element div > span {
-    border-radius: 2px;
+    border-radius: 0px;
     padding: 1px 3px;
     margin: 2px 2px;
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     display: inline-block;
 }
 .main-element-tasks {
