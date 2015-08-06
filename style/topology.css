@@ -174,6 +174,7 @@ pre.prettyprint {
 }
 .add-property-btn:hover, .add-task-btn:hover, .add-collection-btn:hover, .add-group-btn:hover {
     text-shadow: 0px 0px 5px #555;
+    color: white;
 }
 .add-property-btn {
     color: #f1f8e9;
@@ -374,7 +375,7 @@ li.groups {
     top: 4px;
     right: 38px;
 }
-.property .glyphicon-remove, .task .glyphicon-remove, .collection .glyphicon-remove, .group .glyphicon-remove {
+.property .glyphicon-trash, .task .glyphicon-trash, .collection .glyphicon-trash, .group .glyphicon-trash {
     position: absolute;
     top: 5px;
     right: 21px;
@@ -449,11 +450,11 @@ li.groups {
     color: white;
     cursor: pointer;
 }
-.property .glyphicon-edit, .property .glyphicon-remove {
+.property .glyphicon-edit, .property .glyphicon-trash {
     color: white;
     opacity: 0;
 }
-.property:hover .glyphicon-edit, .property:hover .glyphicon-remove {
+.property:hover .glyphicon-edit, .property:hover .glyphicon-trash {
     opacity: 1;
 }
 .property li {
@@ -486,11 +487,11 @@ li.groups {
     color: white;
     cursor: pointer;
 }
-.task .glyphicon-edit, .task .glyphicon-remove {
+.task .glyphicon-edit, .task .glyphicon-trash {
     color: white;
     opacity: 0;
 }
-.task:hover .glyphicon-edit, .task:hover .glyphicon-remove {
+.task:hover .glyphicon-edit, .task:hover .glyphicon-trash {
     opacity: 1;
 }
 .task div > span {
@@ -543,11 +544,11 @@ li.groups {
     color: white;
     cursor: pointer;
 }
-.collection .glyphicon-edit, .collection .glyphicon-remove {
+.collection .glyphicon-edit, .collection .glyphicon-trash {
     color: white;
     opacity: 0;
 }
-.collection:hover .glyphicon-edit, .collection:hover .glyphicon-remove {
+.collection:hover .glyphicon-edit, .collection:hover .glyphicon-trash {
     opacity: 1;
 }
 .collection div span {
@@ -598,11 +599,11 @@ li.groups {
     color: white;
     cursor: pointer;
 }
-.group .glyphicon-edit, .group .glyphicon-remove {
+.group .glyphicon-edit, .group .glyphicon-trash {
     color: white;
     opacity: 0;
 }
-.group:hover .glyphicon-edit, .group:hover .glyphicon-remove {
+.group:hover .glyphicon-edit, .group:hover .glyphicon-trash {
     color: white;
     opacity: 1;
 }

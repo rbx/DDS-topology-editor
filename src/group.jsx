@@ -32,8 +32,17 @@ var Group = React.createClass({
     getInitialState: function() {
         return {
             bodyVisible: false,
-            invalidInput: false
+            invalidInput: false,
+            showDeleteModal: false
         }
+    },
+
+    closeDeleteModal: function() {
+        this.setState({ showDeleteModal: false });
+    },
+
+    openDeleteModal: function() {
+        this.setState({ showDeleteModal: true });
     },
 
     handleInputChange: function(e) {
@@ -102,6 +111,7 @@ var Group = React.createClass({
     },
 
     handleRemoveGroup: function() {
+        this.setState({ showDeleteModal: false });
         this.props.onRemoveGroup(this.props.elementKey);
     },
 
@@ -111,6 +121,7 @@ var Group = React.createClass({
         var Button = ReactBootstrap.Button;
         var Input = ReactBootstrap.Input;
         var ButtonInput = ReactBootstrap.ButtonInput;
+        var Modal = ReactBootstrap.Modal;
         var TaskCheckboxes = [];
         var CollectionCheckboxes = [];
         var self = this;
@@ -155,7 +166,21 @@ var Group = React.createClass({
                         title={this.state.bodyVisible ? "hide": "show"}
                         onClick={this.toggleBodyVisibility}>
                     </span>
-                    <span className="glyphicon glyphicon-remove" title="remove" onClick={this.handleRemoveGroup}></span>
+
+                    <span className="glyphicon glyphicon-trash" title="remove" onClick={this.openDeleteModal}></span>
+                    <Modal show={this.state.showDeleteModal} onHide={this.closeDeleteModal}>
+                      <Modal.Header closeButton>
+                        <Modal.Title>Delete <strong>{this.props.group.id}</strong>?</Modal.Title>
+                      </Modal.Header>
+                      <Modal.Body>
+                        <p>Are you sure you want to delete the group <strong>{this.props.group.id}?</strong></p>
+                      </Modal.Body>
+                      <Modal.Footer>
+                        <Button bsStyle="danger" onClick={this.handleRemoveGroup}>Delete</Button>
+                        <Button onClick={this.closeDeleteModal}>Cancel</Button>
+                      </Modal.Footer>
+                    </Modal>
+
                     <OverlayTrigger trigger="click" placement="right" ref="editGroupBtn" onClick={this.handleInputChange} overlay={
                         <Popover className="add-cg-popover" title="edit group">
                             <form onSubmit={this.handleEditGroup}>

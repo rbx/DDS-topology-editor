@@ -31,22 +31,27 @@ var Task = React.createClass({
     getInitialState: function() {
         return {
             bodyVisible: false,
-            invalidInput: false
+            invalidInput: false,
+            showDeleteModal: false
         }
+    },
+
+    closeDeleteModal: function() {
+        this.setState({ showDeleteModal: false });
+    },
+
+    openDeleteModal: function() {
+        this.setState({ showDeleteModal: true });
     },
 
     handleInputChange: function(e) {
         e.preventDefault();
-        this.setState({
-            invalidInput: false
-        });
+        this.setState({ invalidInput: false });
     },
 
     hideEditTaskButton: function(e) {
         e.preventDefault();
-        this.setState({
-            invalidInput: false
-        });
+        this.setState({ invalidInput: false });
         this.refs.editTaskBtn.toggle();
     },
 
@@ -110,6 +115,7 @@ var Task = React.createClass({
     },
 
     handleRemoveTask: function() {
+        this.setState({ showDeleteModal: false });
         this.props.onRemoveTask(this.props.elementKey);
     },
 
@@ -119,6 +125,7 @@ var Task = React.createClass({
         var Button = ReactBootstrap.Button;
         var Input = ReactBootstrap.Input;
         var ButtonInput = ReactBootstrap.ButtonInput;
+        var Modal = ReactBootstrap.Modal;
         var PropertyCheckboxes = [];
         var exeReachableCheckbox = false;
         var envReachableCheckbox = false;
@@ -176,7 +183,21 @@ var Task = React.createClass({
                         title={this.state.bodyVisible ? "hide": "show"}
                         onClick={this.toggleBodyVisibility}>
                     </span>
-                    <span className="glyphicon glyphicon-remove" title="remove" onClick={this.handleRemoveTask}></span>
+
+                    <span className="glyphicon glyphicon-trash" title="delete" onClick={this.openDeleteModal}></span>
+                    <Modal show={this.state.showDeleteModal} onHide={this.closeDeleteModal}>
+                      <Modal.Header closeButton>
+                        <Modal.Title>Delete <strong>{this.props.task.id}</strong>?</Modal.Title>
+                      </Modal.Header>
+                      <Modal.Body>
+                        <p>Are you sure you want to delete the task <strong>{this.props.task.id}?</strong></p>
+                      </Modal.Body>
+                      <Modal.Footer>
+                        <Button bsStyle="danger" onClick={this.handleRemoveTask}>Delete</Button>
+                        <Button onClick={this.closeDeleteModal}>Cancel</Button>
+                      </Modal.Footer>
+                    </Modal>
+
                     <OverlayTrigger trigger="click" placement="right" ref="editTaskBtn" onClick={this.handleInputChange} overlay={
                         <Popover className="add-cg-popover" title="edit task">
                             <form onSubmit={this.handleEditTask}>
