@@ -44,6 +44,9 @@ input[type=text], input[type=password], input[type=email], textarea, [type=text]
 .form-control {
     height: 30px;
 }
+.popover .form-control {
+    height: 26px;
+}
 select, select.form-control {
   font-size: 12px;
   height: 24px;
@@ -123,6 +126,9 @@ span.reachable {
 input.mono {
     font-family: monospace;
     width: 240px !important;
+}
+textarea, textarea.form-control, input.form-control, input[type=text], input[type=password], input[type=email], input[type=number], [type=text].form-control, [type=password].form-control, [type=email].form-control, [type=tel].form-control, [contenteditable].form-control {
+    font-size: 13px;
 }
 
 /* File Open Dialog */
