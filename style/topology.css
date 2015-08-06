@@ -50,10 +50,12 @@ select, select.form-control {
   padding: 0;
   background-color: #f1f8e9;
 }
-
 .radio, .checkbox {
     margin-top: 5px;
     margin-bottom: 0px;
+}
+.modal-body p {
+    font-size: 14px;
 }
 
 /* Name Change Form */
@@ -106,7 +108,7 @@ span.reachable {
     opacity: 0.75;
 }
 .code {
-    font-family: "Inconsolata", monospace;
+    font-family: monospace;
     font-size: 12px;
     background-color: #e1f5fe;
     padding: 0px 4px;
@@ -119,7 +121,7 @@ span.reachable {
     width: 100%
 }
 input.mono {
-    font-family: "Inconsolata", monospace;
+    font-family: monospace;
     width: 240px !important;
 }
 

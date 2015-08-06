@@ -22,8 +22,17 @@ var TopologyEditor = React.createClass({
                 groups: []
             },
             invalidInput: false,
-            fluid: false
+            fluid: false,
+            showResetModal: false
         };
+    },
+
+    closeResetModal: function() {
+        this.setState({ showResetModal: false });
+    },
+
+    openResetModal: function() {
+        this.setState({ showResetModal: true });
     },
 
     toggleFluid: function() {
@@ -44,7 +53,8 @@ var TopologyEditor = React.createClass({
                 collections: [],
                 groups: []
             },
-            invalidInput: false
+            invalidInput: false,
+            showResetModal: false
         });
     },
 
@@ -397,6 +407,7 @@ var TopologyEditor = React.createClass({
         var Button = ReactBootstrap.Button;
         var Input = ReactBootstrap.Input;
         var ButtonInput = ReactBootstrap.ButtonInput;
+        var Modal = ReactBootstrap.Modal;
         var PropertyCheckboxes = [];
         var TaskCheckboxes = [];
         var CollectionCheckboxes = [];
@@ -573,9 +584,23 @@ var TopologyEditor = React.createClass({
                                 </li>
 
                                 <li className="list-group-item">
-                                    <button type="button" className="btn btn-sm btn-default" onClick={this.resetState}>
+                                    <button type="button" className="btn btn-sm btn-default" onClick={this.openResetModal}>
                                         <span className="glyphicon glyphicon-remove" title="reset the topology"></span> reset
                                     </button>
+
+                                    <Modal show={this.state.showResetModal} onHide={this.closeResetModal}>
+                                      <Modal.Header closeButton>
+                                        <Modal.Title>Reset topology?</Modal.Title>
+                                      </Modal.Header>
+                                      <Modal.Body>
+                                        <p>This will clear all the contents of the topology.</p>
+                                        <p>Unsaved changes will be lost.</p>
+                                      </Modal.Body>
+                                      <Modal.Footer>
+                                        <Button bsStyle="primary" onClick={this.resetState}>Reset</Button>
+                                        <Button onClick={this.closeResetModal}>Cancel</Button>
+                                      </Modal.Footer>
+                                    </Modal>
                                 </li>
                             </ul>
                         </div>

@@ -151,7 +151,7 @@ var MainEditor = React.createClass({
                         <div className="col-xs-4 centered main-element main-element-groups">
                             <h5 className="main-header">groups</h5>
                             {this.props.main.groups.map(function(group, index) {
-                                return <div className="group-groups" key={index}><span>{group.id} ({group.n})</span></div>;
+                                return <div className="group-groups" key={index}><span>{group.id} [{group.n}]</span></div>;
                             })}
                         </div>
                     </div>
