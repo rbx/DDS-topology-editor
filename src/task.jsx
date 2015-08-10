@@ -12,14 +12,13 @@ var TaskList = React.createClass({
         return (
             <div>
                 {this.props.tasks.map(function(task, index) {
-                    return <Task
-                                task={task}
-                                tasks={self.props.tasks}
-                                properties={self.props.properties}
-                                onEditTask={self.props.onEditTask}
-                                onRemoveTask={self.props.onRemoveTask}
-                                key={index}
-                                elementKey={index}
+                    return <Task task={task}
+                                 tasks={self.props.tasks}
+                                 properties={self.props.properties}
+                                 onEditTask={self.props.onEditTask}
+                                 onRemoveTask={self.props.onRemoveTask}
+                                 key={index}
+                                 elementKey={index}
                             />;
                 })}
             </div>
@@ -92,7 +91,8 @@ var Task = React.createClass({
             exe: {
                 valueText: e.target[0].form[1].value
             },
-            properties: selectedProperties
+            properties: selectedProperties,
+            requirement: this.props.task.requirement
         }
 
         if (e.target[0].form[2].checked === true) {
@@ -107,11 +107,8 @@ var Task = React.createClass({
             }
         }
 
-        var nextTasks = this.props.tasks;
-        nextTasks[this.props.elementKey] = updatedTask;
-
         this.refs.editTaskBtn.toggle();
-        this.props.onEditTask(nextTasks);
+        this.props.onEditTask(this.props.elementKey, updatedTask);
     },
 
     handleRemoveTask: function() {

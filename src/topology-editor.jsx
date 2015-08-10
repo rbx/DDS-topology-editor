@@ -119,25 +119,24 @@ var TopologyEditor = React.createClass({
         });
     },
 
-    handleEditProperty: function(key, newproperty) {
-        if (_.some(this.state.properties, { 'id': newproperty.id })) {
+    handleEditProperty: function(key, updatedProperty) {
+        if (_.some(this.state.properties, { 'id': updatedProperty.id })) {
             return;
         }
         var nextProperties = this.state.properties;
-        console.log(key);
-        console.log(nextProperties);
         var oldId = nextProperties[key].id;
-        nextProperties[key] = newproperty;
-        var nextTasks = this.state.tasks;
+        nextProperties[key] = updatedProperty;
+        var nextTasks = this.state.tasks
         nextTasks.forEach(function(task, index) {
             task.properties.forEach(function(property, index) {
                 if (property.id === oldId) {
-                    property.id = newproperty.id;
+                    property.id = updatedProperty.id;
                 }
             })
         });
         this.setState({
-            properties: nextProperties
+            properties: nextProperties,
+            tasks: nextTasks
         });
     },
 
@@ -192,9 +191,45 @@ var TopologyEditor = React.createClass({
         });
     },
 
-    handleEditTask: function(tasks) {
+    handleEditTask: function(key, updatedTask) {
+        var nextTasks = this.state.tasks;
+        var oldId = nextTasks[key].id;
+        nextTasks[key] = updatedTask;
+
+        // update collections with new task info
+        var nextCollections = this.state.collections;
+        nextCollections.forEach(function(collection, colIndex) {
+            collection.tasks.forEach(function(task, index) {
+                if (task === oldId) {
+                    nextCollections[colIndex].tasks[index] = updatedTask.id;
+                }
+            })
+        });
+
+        // update groups with new task info
+        var nextGroups = this.state.main.groups;
+        nextGroups.forEach(function(group, groupIndex) {
+            group.tasks.forEach(function(task, index) {
+                if (task === oldId) {
+                    nextGroups[groupIndex].tasks[index] = updatedTask.id;
+                }
+            })
+        });
+
+        // update main with new task info
+        var nextMain = this.state.main;
+        nextMain.groups = nextGroups;
+        nextMain.tasks.forEach(function(task, index) {
+            if (task === oldId) {
+                nextMain.tasks[index] = updatedTask.id;
+            }
+        });
+
+        // update state
         this.setState({
-            tasks: tasks
+            tasks: nextTasks,
+            collections: nextCollections,
+            main: nextMain
         });
     },
 
@@ -260,9 +295,34 @@ var TopologyEditor = React.createClass({
         });
     },
 
-    handleEditCollection: function(collections) {
+    handleEditCollection: function(key, updatedCollection) {
+        var nextCollections = this.state.collections;
+        var oldId = nextCollections[key].id;
+        nextCollections[key] = updatedCollection;
+
+        // update groups with new collection info
+        var nextGroups = this.state.main.groups;
+        nextGroups.forEach(function(group, groupIndex) {
+            group.collections.forEach(function(collection, index) {
+                if (collection === oldId) {
+                    nextGroups[groupIndex].collections[index] = updatedCollection.id;
+                }
+            })
+        });
+
+        // update main with new collection info
+        var nextMain = this.state.main;
+        nextMain.groups = nextGroups;
+        nextMain.collections.forEach(function(collection, index) {
+            if (collection === oldId) {
+                nextMain.collections[index] = updatedCollection.id;
+            }
+        });
+
+        // update state
         this.setState({
-            collections: collections
+            collections: nextCollections,
+            main: nextMain
         });
     },
 

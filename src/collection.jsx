@@ -12,14 +12,13 @@ var CollectionList = React.createClass({
         return (
             <div>
                 {this.props.collections.map(function(collection, index) {
-                    return <Collection
-                                collection={collection}
-                                collections={self.props.collections}
-                                tasks={self.props.tasks}
-                                onEditCollection={self.props.onEditCollection}
-                                onRemoveCollection={self.props.onRemoveCollection}
-                                key={index}
-                                elementKey={index}
+                    return <Collection collection={collection}
+                                       collections={self.props.collections}
+                                       tasks={self.props.tasks}
+                                       onEditCollection={self.props.onEditCollection}
+                                       onRemoveCollection={self.props.onRemoveCollection}
+                                       key={index}
+                                       elementKey={index}
                             />;
                 })}
             </div>
@@ -89,14 +88,12 @@ var Collection = React.createClass({
         });
         var updatedCollection = {
             id: e.target[0].form[0].value,
+            requirement: self.props.collection.requirement,
             tasks: selectedTasks
         }
 
-        var nextCollections = this.props.collections;
-        nextCollections[this.props.elementKey] = updatedCollection;
-
         this.refs.editCollectionBtn.toggle();
-        this.props.onEditCollection(nextCollections);
+        this.props.onEditCollection(this.props.elementKey, updatedCollection);
     },
 
     handleRemoveCollection: function() {

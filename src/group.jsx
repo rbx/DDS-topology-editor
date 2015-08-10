@@ -12,15 +12,14 @@ var GroupList = React.createClass({
         return (
             <div>
                 {this.props.groups.map(function(group, index) {
-                    return <Group
-                                group={group}
-                                groups={self.props.groups}
-                                collections={self.props.collections}
-                                tasks={self.props.tasks}
-                                onEditGroup={self.props.onEditGroup}
-                                onRemoveGroup={self.props.onRemoveGroup}
-                                key={index}
-                                elementKey={index}
+                    return <Group group={group}
+                                  groups={self.props.groups}
+                                  collections={self.props.collections}
+                                  tasks={self.props.tasks}
+                                  onEditGroup={self.props.onEditGroup}
+                                  onRemoveGroup={self.props.onRemoveGroup}
+                                  key={index}
+                                  elementKey={index}
                             />;
                 })}
             </div>

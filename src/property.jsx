@@ -12,12 +12,11 @@ var PropertyList = React.createClass({
         return (
             <div>
                 {this.props.properties.map(function(property, index) {
-                    return <Property
-                                property={property}
-                                onEditProperty={self.props.onEditProperty}
-                                onRemoveProperty={self.props.onRemoveProperty}
-                                key={index}
-                                elementKey={index}
+                    return <Property property={property}
+                                     onEditProperty={self.props.onEditProperty}
+                                     onRemoveProperty={self.props.onRemoveProperty}
+                                     key={index}
+                                     elementKey={index}
                             />;
                 })}
             </div>
