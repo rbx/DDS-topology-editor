@@ -506,7 +506,7 @@ var TopologyEditor = React.createClass({
 
         return (
             <div>
-                <TopBar topologyId={this.state.topologyId} onTopologyIdChange={this.handleTopologyIdChange} onToggleFluid={this.toggleFluid} />
+                <TopBar topologyId={this.state.topologyId} onTopologyIdChange={this.handleTopologyIdChange} fluid={this.state.fluid} onToggleFluid={this.toggleFluid} />
 
                 <div className={this.state.fluid ? "container-fluid" : "container"}>
                     <div className="row">
