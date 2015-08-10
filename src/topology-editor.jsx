@@ -510,7 +510,7 @@ var TopologyEditor = React.createClass({
 
                 <div className={this.state.fluid ? "container-fluid" : "container"}>
                     <div className="row">
-                        <div className="col-xs-3">
+                        <div className="col-fixed-250">
                             <ul className="list-group left-pane">
                                 <FileActions
                                     onFileLoad={this.handleTopologyChange}
@@ -664,7 +664,7 @@ var TopologyEditor = React.createClass({
                                 </li>
                             </ul>
                         </div>
-                        <div className="col-xs-9">
+                        <div className="col-xs-12 col-offset-250">
                             <MainEditor tasks={this.state.tasks} collections={this.state.collections} main={this.state.main} onEditMain={this.handleEditMain}/>
                         </div>
                     </div>
