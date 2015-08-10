@@ -142,16 +142,16 @@ var Collection = React.createClass({
 
                     <span className="glyphicon glyphicon-trash" title="remove" onClick={this.openDeleteModal}></span>
                     <Modal show={this.state.showDeleteModal} onHide={this.closeDeleteModal}>
-                      <Modal.Header closeButton>
-                        <Modal.Title>Delete <strong>{this.props.collection.id}</strong>?</Modal.Title>
-                      </Modal.Header>
-                      <Modal.Body>
-                        <p>Are you sure you want to delete the collection <strong>{this.props.collection.id}?</strong></p>
-                      </Modal.Body>
-                      <Modal.Footer>
-                        <Button bsStyle="danger" onClick={this.handleRemoveCollection}>Delete</Button>
-                        <Button onClick={this.closeDeleteModal}>Cancel</Button>
-                      </Modal.Footer>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Delete <strong>{this.props.collection.id}</strong>?</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <p>Are you sure you want to delete the collection <strong>{this.props.collection.id}?</strong></p>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button bsStyle="danger" onClick={this.handleRemoveCollection}>Delete</Button>
+                            <Button onClick={this.closeDeleteModal}>Cancel</Button>
+                        </Modal.Footer>
                     </Modal>
 
                     <OverlayTrigger trigger="click" placement="right" ref="editCollectionBtn" onClick={this.handleInputChange} overlay={

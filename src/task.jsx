@@ -186,16 +186,16 @@ var Task = React.createClass({
 
                     <span className="glyphicon glyphicon-trash" title="delete" onClick={this.openDeleteModal}></span>
                     <Modal show={this.state.showDeleteModal} onHide={this.closeDeleteModal}>
-                      <Modal.Header closeButton>
-                        <Modal.Title>Delete <strong>{this.props.task.id}</strong>?</Modal.Title>
-                      </Modal.Header>
-                      <Modal.Body>
-                        <p>Are you sure you want to delete the task <strong>{this.props.task.id}?</strong></p>
-                      </Modal.Body>
-                      <Modal.Footer>
-                        <Button bsStyle="danger" onClick={this.handleRemoveTask}>Delete</Button>
-                        <Button onClick={this.closeDeleteModal}>Cancel</Button>
-                      </Modal.Footer>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Delete <strong>{this.props.task.id}</strong>?</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <p>Are you sure you want to delete the task <strong>{this.props.task.id}?</strong></p>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button bsStyle="danger" onClick={this.handleRemoveTask}>Delete</Button>
+                            <Button onClick={this.closeDeleteModal}>Cancel</Button>
+                        </Modal.Footer>
                     </Modal>
 
                     <OverlayTrigger trigger="click" placement="right" ref="editTaskBtn" onClick={this.handleInputChange} overlay={
@@ -225,7 +225,7 @@ var Task = React.createClass({
                     {envValue}
                     <div>
                         {this.props.task.properties.map(function(property) {
-                            return (<span>
+                            return (<span title={property.id}>
                                         &nbsp;
                                         <span className="prop-access" title={ (property.access === "write") ? "write" : "" }>{ (property.access === "write") ? "W " : "" }</span>
                                         <span className="prop-access" title={ (property.access === "read") ? "read" : "" }>{ (property.access === "read") ? "R " : "" }</span>

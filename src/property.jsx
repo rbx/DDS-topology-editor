@@ -90,16 +90,16 @@ var Property = React.createClass({
 
                     <span className="glyphicon glyphicon-trash" title="delete" onClick={this.openDeleteModal}></span>
                     <Modal show={this.state.showDeleteModal} onHide={this.closeDeleteModal}>
-                      <Modal.Header closeButton>
-                        <Modal.Title>Delete <strong>{this.props.property.id}</strong>?</Modal.Title>
-                      </Modal.Header>
-                      <Modal.Body>
-                        <p>Are you sure you want to delete the property <strong>{this.props.property.id}?</strong></p>
-                      </Modal.Body>
-                      <Modal.Footer>
-                        <Button bsStyle="danger" onClick={this.handleRemoveProperty}>Delete</Button>
-                        <Button onClick={this.closeDeleteModal}>Cancel</Button>
-                      </Modal.Footer>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Delete <strong>{this.props.property.id}</strong>?</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <p>Are you sure you want to delete the property <strong>{this.props.property.id}?</strong></p>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button bsStyle="danger" onClick={this.handleRemoveProperty}>Delete</Button>
+                            <Button onClick={this.closeDeleteModal}>Cancel</Button>
+                        </Modal.Footer>
                     </Modal>
 
                     <span className="glyphicon glyphicon-edit" title="edit" onClick={this.toggleEditing}></span>
@@ -113,7 +113,7 @@ var Property = React.createClass({
                                 <button className="btn btn-xs btn-primary" type="submit">ok</button>
                             </form>
                             :
-                            <span><strong>id:</strong> {this.props.property.id}</span>
+                            <span title={this.props.property.id}><strong>id:</strong> {this.props.property.id}</span>
                         }
                     </div>
                 </ul>
