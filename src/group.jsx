@@ -7,6 +7,14 @@
  ********************************************************************************/
 
 var GroupList = React.createClass({
+    propTypes: {
+        groups: React.PropTypes.array.isRequired,
+        tasks: React.PropTypes.array.isRequired,
+        collections: React.PropTypes.array.isRequired,
+        onRemoveGroup: React.PropTypes.func.isRequired,
+        onEditGroup: React.PropTypes.func.isRequired
+    },
+
     render: function() {
         var self = this;
         return (
@@ -14,10 +22,10 @@ var GroupList = React.createClass({
                 {this.props.groups.map(function(group, index) {
                     return <Group group={group}
                                   groups={self.props.groups}
-                                  collections={self.props.collections}
                                   tasks={self.props.tasks}
-                                  onEditGroup={self.props.onEditGroup}
+                                  collections={self.props.collections}
                                   onRemoveGroup={self.props.onRemoveGroup}
+                                  onEditGroup={self.props.onEditGroup}
                                   key={index}
                                   elementKey={index}
                             />;
@@ -28,6 +36,16 @@ var GroupList = React.createClass({
 });
 
 var Group = React.createClass({
+    propTypes: {
+        group: React.PropTypes.object.isRequired,
+        groups: React.PropTypes.array.isRequired,
+        tasks: React.PropTypes.array.isRequired,
+        collections: React.PropTypes.array.isRequired,
+        onRemoveGroup: React.PropTypes.func.isRequired,
+        onEditGroup: React.PropTypes.func.isRequired,
+        elementKey: React.PropTypes.number.isRequired
+    },
+
     getInitialState: function() {
         return {
             bodyVisible: false,

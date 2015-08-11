@@ -7,14 +7,20 @@
  ********************************************************************************/
 
 var PropertyList = React.createClass({
+    propTypes: {
+        properties: React.PropTypes.array.isRequired,
+        onRemoveProperty: React.PropTypes.func.isRequired,
+        onEditProperty: React.PropTypes.func.isRequired
+    },
+
     render: function() {
         var self = this;
         return (
             <div>
                 {this.props.properties.map(function(property, index) {
                     return <Property property={property}
-                                     onEditProperty={self.props.onEditProperty}
                                      onRemoveProperty={self.props.onRemoveProperty}
+                                     onEditProperty={self.props.onEditProperty}
                                      key={index}
                                      elementKey={index}
                             />;
@@ -25,6 +31,13 @@ var PropertyList = React.createClass({
 });
 
 var Property = React.createClass({
+    propTypes: {
+        property: React.PropTypes.object.isRequired,
+        onRemoveProperty: React.PropTypes.func.isRequired,
+        onEditProperty: React.PropTypes.func.isRequired,
+        elementKey: React.PropTypes.number.isRequired
+    },
+
     getInitialState: function() {
         return {
             bodyVisible: false,

@@ -7,6 +7,17 @@
  ********************************************************************************/
 
 var FileActions = React.createClass({
+    propTypes: {
+        onFileLoad: React.PropTypes.func.isRequired,
+        topologyId: React.PropTypes.string.isRequired,
+        variables: React.PropTypes.array.isRequired,
+        properties: React.PropTypes.array.isRequired,
+        requirements: React.PropTypes.array.isRequired,
+        tasks: React.PropTypes.array.isRequired,
+        collections: React.PropTypes.array.isRequired,
+        main: React.PropTypes.object.isRequired
+    },
+
     handleFileLoad: function(event) {
         var parser = new DOMParser(),
             reader = new FileReader(),

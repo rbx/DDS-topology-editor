@@ -7,6 +7,13 @@
  ********************************************************************************/
 
 var TopBar = React.createClass({
+    propTypes: {
+        topologyId: React.PropTypes.string.isRequired,
+        onTopologyIdChange: React.PropTypes.func.isRequired,
+        fluid: React.PropTypes.bool.isRequired,
+        onToggleFluid: React.PropTypes.func.isRequired
+    },
+
     getInitialState: function() {
         return {
             beeingEdited: false

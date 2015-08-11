@@ -7,16 +7,23 @@
  ********************************************************************************/
 
 var TaskList = React.createClass({
+    propTypes: {
+        properties: React.PropTypes.array.isRequired,
+        tasks: React.PropTypes.array.isRequired,
+        onRemoveTask: React.PropTypes.func.isRequired,
+        onEditTask: React.PropTypes.func.isRequired
+    },
+
     render: function() {
         var self = this;
         return (
             <div>
                 {this.props.tasks.map(function(task, index) {
                     return <Task task={task}
-                                 tasks={self.props.tasks}
                                  properties={self.props.properties}
-                                 onEditTask={self.props.onEditTask}
+                                 tasks={self.props.tasks}
                                  onRemoveTask={self.props.onRemoveTask}
+                                 onEditTask={self.props.onEditTask}
                                  key={index}
                                  elementKey={index}
                             />;
@@ -27,6 +34,15 @@ var TaskList = React.createClass({
 });
 
 var Task = React.createClass({
+    propTypes: {
+        task: React.PropTypes.object.isRequired,
+        properties: React.PropTypes.array.isRequired,
+        tasks: React.PropTypes.array.isRequired,
+        onRemoveTask: React.PropTypes.func.isRequired,
+        onEditTask: React.PropTypes.func.isRequired,
+        elementKey: React.PropTypes.number.isRequired
+    },
+
     getInitialState: function() {
         return {
             bodyVisible: false,
@@ -222,7 +238,7 @@ var Task = React.createClass({
                     {envValue}
                     <div>
                         {this.props.task.properties.map(function(property) {
-                            return (<span title={property.id}>
+                            return (<span title={property.id} key={property.id}>
                                         &nbsp;
                                         <span className="prop-access" title={ (property.access === "write") ? "write" : "" }>{ (property.access === "write") ? "W " : "" }</span>
                                         <span className="prop-access" title={ (property.access === "read") ? "read" : "" }>{ (property.access === "read") ? "R " : "" }</span>

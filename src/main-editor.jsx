@@ -7,6 +7,13 @@
  ********************************************************************************/
 
 var MainEditor = React.createClass({
+    propTypes: {
+        tasks: React.PropTypes.array.isRequired,
+        collections: React.PropTypes.array.isRequired,
+        main: React.PropTypes.object.isRequired,
+        onEditMain: React.PropTypes.func.isRequired
+    },
+
     hideEditTasksInMainBtn: function(e) {
         e.preventDefault();
         this.refs.editTasksInMainBtn.toggle();
@@ -114,7 +121,7 @@ var MainEditor = React.createClass({
                                             {TaskCheckboxes}
                                             <div className="row">
                                                 <div className="col-xs-12">
-                                                    <ButtonInput className="add-cg-popover-btn" type="submit" bsSize="small" bsStyle="primary" value="add" />
+                                                    <ButtonInput className="add-cg-popover-btn" type="submit" bsSize="small" bsStyle="primary" value="edit" />
                                                     <Button className="add-cg-popover-btn" bsSize="small" bsStyle="default" onClick={this.hideEditTasksInMainBtn}>cancel</Button>
                                                 </div>
                                             </div>
@@ -136,7 +143,7 @@ var MainEditor = React.createClass({
                                             {CollectionCheckboxes}
                                             <div className="row">
                                                 <div className="col-xs-12">
-                                                    <ButtonInput className="add-cg-popover-btn" type="submit" bsSize="small" bsStyle="primary" value="add" />
+                                                    <ButtonInput className="add-cg-popover-btn" type="submit" bsSize="small" bsStyle="primary" value="edit" />
                                                     <Button className="add-cg-popover-btn" bsSize="small" bsStyle="default" onClick={this.hideEditCollectionsInMainBtn}>cancel</Button>
                                                 </div>
                                             </div>

@@ -7,6 +7,13 @@
  ********************************************************************************/
 
 var CollectionList = React.createClass({
+    propTypes: {
+        collections: React.PropTypes.array.isRequired,
+        tasks: React.PropTypes.array.isRequired,
+        onRemoveCollection: React.PropTypes.func.isRequired,
+        onEditCollection: React.PropTypes.func.isRequired
+    },
+
     render: function() {
         var self = this;
         return (
@@ -15,8 +22,8 @@ var CollectionList = React.createClass({
                     return <Collection collection={collection}
                                        collections={self.props.collections}
                                        tasks={self.props.tasks}
-                                       onEditCollection={self.props.onEditCollection}
                                        onRemoveCollection={self.props.onRemoveCollection}
+                                       onEditCollection={self.props.onEditCollection}
                                        key={index}
                                        elementKey={index}
                             />;
@@ -27,6 +34,15 @@ var CollectionList = React.createClass({
 });
 
 var Collection = React.createClass({
+    propTypes: {
+        collection: React.PropTypes.object.isRequired,
+        collections: React.PropTypes.array.isRequired,
+        tasks: React.PropTypes.array.isRequired,
+        onRemoveCollection: React.PropTypes.func.isRequired,
+        onEditCollection: React.PropTypes.func.isRequired,
+        elementKey: React.PropTypes.number.isRequired
+    },
+
     getInitialState: function() {
         return {
             bodyVisible: false,

@@ -506,11 +506,14 @@ var TopologyEditor = React.createClass({
 
         return (
             <div>
-                <TopBar topologyId={this.state.topologyId} onTopologyIdChange={this.handleTopologyIdChange} fluid={this.state.fluid} onToggleFluid={this.toggleFluid} />
+                <TopBar topologyId={this.state.topologyId}
+                        onTopologyIdChange={this.handleTopologyIdChange}
+                        fluid={this.state.fluid}
+                        onToggleFluid={this.toggleFluid} />
 
                 <div className={this.state.fluid ? "container-fluid" : "container"}>
                     <div className="row">
-                        <div className="col-fixed-250">
+                        <div className="col-xs-3">
                             <ul className="list-group left-pane">
                                 <FileActions
                                     onFileLoad={this.handleTopologyChange}
@@ -547,11 +550,10 @@ var TopologyEditor = React.createClass({
                                     </OverlayTrigger>
                                 </li>
                                 <li className="list-group-item tasks">
-                                    <TaskList
-                                        properties={this.state.properties}
-                                        tasks={this.state.tasks}
-                                        onRemoveTask={this.handleRemoveTask}
-                                        onEditTask={this.handleEditTask} />
+                                    <TaskList properties={this.state.properties}
+                                              tasks={this.state.tasks}
+                                              onRemoveTask={this.handleRemoveTask}
+                                              onEditTask={this.handleEditTask} />
                                 </li>
 
                                 <li className="list-group-item properties-header">
@@ -573,10 +575,9 @@ var TopologyEditor = React.createClass({
                                     </OverlayTrigger>
                                 </li>
                                 <li className="list-group-item properties">
-                                    <PropertyList
-                                        properties={this.state.properties}
-                                        onRemoveProperty={this.handleRemoveProperty}
-                                        onEditProperty={this.handleEditProperty} />
+                                    <PropertyList properties={this.state.properties}
+                                                  onRemoveProperty={this.handleRemoveProperty}
+                                                  onEditProperty={this.handleEditProperty} />
                                 </li>
 
                                 <li className="list-group-item collections-header">
@@ -664,8 +665,11 @@ var TopologyEditor = React.createClass({
                                 </li>
                             </ul>
                         </div>
-                        <div className="col-xs-12 col-offset-250">
-                            <MainEditor tasks={this.state.tasks} collections={this.state.collections} main={this.state.main} onEditMain={this.handleEditMain}/>
+                        <div className="col-xs-9">
+                            <MainEditor tasks={this.state.tasks}
+                                        collections={this.state.collections}
+                                        main={this.state.main}
+                                        onEditMain={this.handleEditMain} />
                         </div>
                     </div>
                 </div>
