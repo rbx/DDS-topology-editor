@@ -530,7 +530,7 @@ var TopologyEditor = React.createClass({
                                     <OverlayTrigger trigger="click" placement="right" ref="addTaskBtn" onClick={this.handleInputChange} overlay={
                                         <Popover className="add-cg-popover" title="add new task">
                                             <form onSubmit={this.handleAddTask}>
-                                                <Input type="text" addonBefore="id" onChange={this.handleInputChange} className={this.state.invalidInput ? "invalid-input" : "" } />
+                                                <Input type="text" addonBefore="id" autoFocus onChange={this.handleInputChange} className={this.state.invalidInput ? "invalid-input" : "" } />
                                                 <Input type="text" addonBefore="exe" onChange={this.handleInputChange} className={this.state.invalidInput ? "mono invalid-input" : "mono" } />
                                                 <Input type="checkbox" label="exe reachable (optional)"/>
                                                 <Input type="text" addonBefore="env" className="mono" />
@@ -561,7 +561,7 @@ var TopologyEditor = React.createClass({
                                     <OverlayTrigger trigger="click" placement="right" ref="addPropertyBtn" onClick={this.handleInputChange} overlay={
                                         <Popover className="add-cg-popover" title="add new property">
                                             <form onSubmit={this.handleAddProperty}>
-                                                <Input type="text" addonBefore="id" onChange={this.handleInputChange} className={this.state.invalidInput ? "invalid-input" : ""} />
+                                                <Input type="text" addonBefore="id" autoFocus onChange={this.handleInputChange} className={this.state.invalidInput ? "invalid-input" : ""} />
                                                 <div className="row">
                                                     <div className="col-xs-12">
                                                         <ButtonInput className="add-cg-popover-btn" type="submit" bsSize="small" bsStyle="primary" value="add" />
@@ -585,7 +585,7 @@ var TopologyEditor = React.createClass({
                                     <OverlayTrigger trigger="click" placement="right" ref="addCollectionBtn" onClick={this.handleInputChange} overlay={
                                         <Popover className="add-cg-popover" title="add new collection">
                                             <form onSubmit={this.handleAddCollection}>
-                                                <Input type="text" addonBefore="id" onChange={this.handleInputChange} className={this.state.invalidInput ? "invalid-input" : ""} />
+                                                <Input type="text" addonBefore="id" autoFocus onChange={this.handleInputChange} className={this.state.invalidInput ? "invalid-input" : ""} />
                                                 <p>Tasks in this collection:</p>
                                                 {TaskCheckboxes}
                                                 <div className="row">
@@ -613,7 +613,7 @@ var TopologyEditor = React.createClass({
                                     <OverlayTrigger trigger="click" placement="right" ref="addGroupBtn" onClick={this.handleInputChange} overlay={
                                         <Popover className="add-cg-popover" title="add new group">
                                             <form onSubmit={this.handleAddGroup}>
-                                                <Input type="text" addonBefore="id" onChange={this.handleInputChange} className={this.state.invalidInput ? "invalid-input" : ""} />
+                                                <Input type="text" addonBefore="id" autoFocus onChange={this.handleInputChange} className={this.state.invalidInput ? "invalid-input" : ""} />
                                                 <div className="row">
                                                     <div className="col-xs-6">
                                                         <Input type="number" min="1" step="1" addonBefore="n" defaultValue="1" />
