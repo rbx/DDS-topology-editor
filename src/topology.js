@@ -485,7 +485,8 @@ var graphDraw = (function(){
                                 'stroke-width': 2,
                                 'title': _property.id,
                                 'class': 'masterTooltip',
-                                'marker-end': "url(#arrowMarker)"
+                                'marker-end': "url(#arrowMarker)",
+                                'visibility': "hidden"
                             });
                         } else {
                             link = V('line', {
@@ -497,7 +498,8 @@ var graphDraw = (function(){
                                 'class': 'masterTooltip',
                                 'stroke-width': 2,
                                 'title': _property.id,
-                                'marker-end': "url(#arrowMarker)"
+                                'marker-end': "url(#arrowMarker)",
+                                'visibility': "hidden"
                             });  
                         }
                         plotLinks.push(link);
